@@ -1,0 +1,7 @@
+== My Rails Template
+
+This sets up a new rails project the way I like a new project to be set up
+
+=== Instructions
+
+rails new APPLICATION_NAME -m PATH_TO_TEMPLATE_FILE
