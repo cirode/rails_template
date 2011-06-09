@@ -65,12 +65,13 @@ generate "pickle", "--email --paths"
 generate "jasmine:install"
 capify!
 
-git :init
+
+git :init unless File.exists?('.git')
 git :add => '.'
 git :commit => '-m "First commit"'
 
-if( remote_git_repos = old_ask("What is the remote git repository? (leave blank for none)")).blank?
-  if `git remote list`.blank?
+unless( remote_git_repos = old_ask("What is the remote git repository? (leave blank for none)")).blank?
+  if `git remote -v`.blank?
     run "git remote set-url origin #{remote_git_repos}"
   else
     run "git remote add origin #{remote_git_repos}"
